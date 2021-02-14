@@ -23,7 +23,8 @@ public class AppMain {
 
         productService.setProductContainer(databaseProductContainer);
         System.out.println(productService.getAverageCost());
-        
+        System.out.println(productService.getSize());
+
     }
 
 }

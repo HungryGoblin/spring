@@ -25,7 +25,7 @@ public class ProductService {
         return sum / size;
     }
 
-    public float getSize() {
+    public int getSize() {
         return productContainer.getProducts().size();
     }
 
