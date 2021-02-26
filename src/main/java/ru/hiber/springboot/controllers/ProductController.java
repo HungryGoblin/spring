@@ -1,4 +1,4 @@
-package ru.geekbrains.springboot.controllers;
+package ru.hiber.springboot.controllers;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -7,7 +7,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import ru.geekbrains.springboot.services.ProductService;
+import ru.hiber.springboot.exceptions.ProductNotFoundException;
+import ru.hiber.springboot.services.ProductService;
 
 import javax.servlet.http.HttpServletResponse;
 
@@ -41,9 +42,13 @@ public class ProductController {
 
     @GetMapping("/delete/{id}")
     public String deleteProduct(@PathVariable int id, HttpServletResponse response) {
-        productService.deleteProduct(id);
+        try {
+            productService.deleteProduct(id);
+        } catch (ProductNotFoundException e) {
+            return "redirect:/error";
+            //model.addAttribute("e", productService.getAll());
+        }
         return "redirect:/products";
     }
-
 
 }

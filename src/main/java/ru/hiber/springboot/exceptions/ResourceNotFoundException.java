@@ -1,7 +1,7 @@
-package ru.geekbrains.springboot.exceptions;
+package ru.hiber.springboot.exceptions;
 
 public class ResourceNotFoundException extends RuntimeException {
     public ResourceNotFoundException(String message) {
-        super("Что-то пошло не так " + message);
+        super("Внутренняя ошибка сервера: " + message);
     }
 }
