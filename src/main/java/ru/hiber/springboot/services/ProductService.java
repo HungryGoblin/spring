@@ -1,10 +1,10 @@
-package ru.geekbrains.springboot.services;
+package ru.hiber.springboot.services;
 import lombok.NoArgsConstructor;
 import org.springframework.stereotype.Service;
-import ru.geekbrains.springboot.model.Product;
-import ru.geekbrains.springboot.repositories.ProductRepository;
+import ru.hiber.springboot.model.Product;
+import ru.hiber.springboot.repositories.ProductRepository;
 
-import java.util.List;
+import java.util.HashMap;
 
 @Service
 @NoArgsConstructor
@@ -12,7 +12,7 @@ public class ProductService {
 
     private final ProductRepository productRepository = new ProductRepository();
 
-    public List<Product> getAll() {
+    public HashMap<Integer, Product> getAll() {
         return productRepository.getAll();
     }
 

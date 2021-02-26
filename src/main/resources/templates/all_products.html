@@ -12,11 +12,6 @@
 <body>
 
 <div class="container">
-<!--    <form method="get" th:action="@{'/products'}">-->
-<!--        <input class="form-control" th:value="${param.min_score != null ? param.min_score : ''}" type="number" placeholder="Минимальный балл" name="min_score"/>-->
-<!--        <input class="form-control" th:value="${param.max_score != null ? param.max_score : ''}" type="number" placeholder="Максимальный балл" name="max_score"/>-->
-<!--        <button class="btn btn-primary" type="submit">Найти</button>-->
-<!--    </form>-->
     <h1>Список товаров</h1>
     <table class="table table-hover">
         <thead class="thead-dark">
@@ -29,11 +24,11 @@
         </thead>
         <tbody>
         <tr th:each="s : ${products}">
-            <td th:text="${s.id}"/>
-            <td th:text="${s.title}"/>
-            <td th:text="${s.cost}"/>
+            <td th:text="${s.getValue().getId()}"/>
+            <td th:text="${s.getValue().getTitle()}"/>
+            <td th:text="${s.getValue().getCost()}"/>
             <td>
-                <a class="btn btn-danger" th:href="@{'/products/delete/' + ${s.id}}">Удалить</a>
+                <a class="btn btn-danger" th:href="@{'/products/delete/' + ${s.getValue.getId()}}">Удалить</a>
             </td>
         </tr>
         </tbody>

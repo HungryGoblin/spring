@@ -1,4 +1,4 @@
-package ru.geekbrains.springboot.model;
+package ru.hiber.springboot.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
